@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GameOverEvents</name>
+    <events>
+        <event-block sid="952821452589139">
+            <conditions>
+                <condition id="0" name="On clicked" sid="704174681113824" type="StartOverButton" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="489876131663126" type="System">
+                    <param id="0" name="Layout">1-1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="548398892643675">
+            <conditions>
+                <condition id="0" name="On clicked" sid="646355014359765" type="ExitButton" />
+            </conditions>
+            <actions>
+                <action id="1" name="Close" sid="431418857437843" type="MainBrowser" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
