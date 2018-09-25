@@ -10,7 +10,7 @@
     <unique-id>3phjf8c2bcezm</unique-id>
     <saved-with-version>26200</saved-with-version>
     <used-plugins>
-        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
@@ -21,10 +21,8 @@
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
-        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -55,6 +53,11 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="CanTakeDamager" sid="995594692312215" type="boolean" />
+                <instance-variable name="OverAllScore" sid="173114964093415" type="number" />
+                <instance-variable name="LevelScore" sid="257191225775061" type="number" />
+                <instance-variable name="BatteryLevel" sid="707322176201850" type="number" />
+                <instance-variable name="MaxBatteryLevel" sid="601380994946953" type="number" />
+                <instance-variable name="MinBatteryLevel" sid="440379474276894" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="250281100213375">
@@ -96,9 +99,6 @@
         </object-type>
         <object-type name="Text" sid="898784304415704">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="Audio" sid="738857350007768">
-            <plugin id="Audio" />
         </object-type>
         <object-type name="Battery" sid="447607362320009">
             <plugin id="Sprite" />
@@ -196,17 +196,6 @@
         </object-type>
         <object-type name="Frog" sid="856718196858452">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable comment="Amount of the damager the player takes if player touches frog" name="TouchDamage" sid="659411552043760" type="number" />
-            </instance-variables>
-            <behaviors>
-                <behavior-type name="Pathfinding" sid="177697670561650">
-                    <behavior id="Pathfinding" />
-                </behavior-type>
-                <behavior-type name="Timer" sid="793924620285017">
-                    <behavior id="Timer" />
-                </behavior-type>
-            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="480784805577008" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\OneDrive\School\Fall 2018\GAM107\CaveQuest\Files\redgem.png">
@@ -232,16 +221,51 @@
         <object-type name="MainBrowser" sid="959509642864065">
             <plugin id="Browser" />
         </object-type>
-        <object-type name="endmark" sid="433384531294558">
+        <object-type name="Function" sid="698800812754431">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Boss1" sid="972834268661246">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="rightandleft" sid="212484985516333">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="upAndDown" sid="778142989146119">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="227427988330798" speed="5">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="235050501015189" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Function" sid="698800812754431">
-            <plugin id="Function" />
+        <object-type name="MovingJumbThruTile" sid="315741957943645">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="202064051964884">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Jumpthru" sid="845865536817007">
+                    <behavior id="jumpthru" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="733871020261914" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Door" sid="742414169726823">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="734423111071349" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="GlobalState" sid="362843284579405">
+            <plugin id="Arr" />
         </object-type>
     </object-folder>
     <families>
@@ -255,53 +279,79 @@
                 <instance-variable name="Value" sid="584111695473452" type="number" />
             </instance-variables>
         </family>
+        <family name="bosses" plugin-id="Sprite" sid="424826001398220">
+            <members>
+                <member>Boss1</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="Health" sid="805349265557637" type="number" />
+            </instance-variables>
+        </family>
+        <family name="SimpleAI" plugin-id="Sprite" sid="519880830059005">
+            <members>
+                <member>Frog</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="Direction" sid="429770744228663" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Platform2" sid="955310715049065">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="DamagingObjects" plugin-id="Sprite" sid="204620169203652">
+            <members>
+                <member>Boss1</member>
+                <member>Frog</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="Damage" sid="242410079498311" type="number" />
+            </instance-variables>
+        </family>
     </families>
     <layout-folder>
         <layout>Start Menu.xml</layout>
         <layout>StartStory.xml</layout>
         <layout>1-1.xml</layout>
         <layout>1-2.xml</layout>
-        <layout>1-3.xml</layout>
-        <layout>1-4.xml</layout>
         <layout>1-boss.xml</layout>
         <layout>2-1.xml</layout>
         <layout>2-2.xml</layout>
-        <layout>2-3.xml</layout>
-        <layout>2-4.xml</layout>
         <layout>2-boss.xml</layout>
         <layout>3-1.xml</layout>
         <layout>3-2.xml</layout>
-        <layout>3-3.xml</layout>
-        <layout>3-4.xml</layout>
         <layout>3-boss.xml</layout>
         <layout>4-1.xml</layout>
         <layout>4-2.xml</layout>
-        <layout>4-3.xml</layout>
-        <layout>4-4.xml</layout>
         <layout>4-boss.xml</layout>
+        <layout>5-1.xml</layout>
+        <layout>5-2.xml</layout>
+        <layout>5-boss.xml</layout>
+        <layout>6-1.xml</layout>
+        <layout>6-2.xml</layout>
+        <layout>6-boss.xml</layout>
+        <layout>7-1.xml</layout>
+        <layout>7-2.xml</layout>
+        <layout>7-boss.xml</layout>
+        <layout>8-1.xml</layout>
+        <layout>8-2.xml</layout>
+        <layout>8-boss.xml</layout>
+        <layout>9-1.xml</layout>
+        <layout>9-2.xml</layout>
+        <layout>9-boss.xml</layout>
         <layout>Game Over.xml</layout>
         <layout>Shop.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Level1.xml</event-sheet>
+        <event-sheet>MainLevelEvents.xml</event-sheet>
         <event-sheet>GameOverEvents.xml</event-sheet>
+        <event-sheet>PlayerEvents.xml</event-sheet>
+        <event-sheet>Functions.xml</event-sheet>
+        <event-sheet>ShopEvents.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="20" />
-        <global-instance type="Audio" uid="38">
-            <properties>
-                <timescale-audio>Off</timescale-audio>
-                <saveload>All</saveload>
-                <play-in-background>No</play-in-background>
-                <positioned-audio></positioned-audio>
-                <panning-model>HRTF</panning-model>
-                <distance-model>Inverse</distance-model>
-                <listener-z-height>600</listener-z-height>
-                <reference-distance>600</reference-distance>
-                <maximum-distance>10000</maximum-distance>
-                <roll-off-factor>1</roll-off-factor>
-            </properties>
-        </global-instance>
         <global-instance type="MainBrowser" uid="18" />
         <global-instance type="Function" uid="23" />
     </global-instances>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>1-4</name>
-    <sid>745109414714332</sid>
+    <name>5-boss</name>
+    <sid>739176923893037</sid>
     <event-sheet></event-sheet>
     <size>
         <width>1708</width>
@@ -13,7 +13,7 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="Layer 0" sid="754764963019223">
+        <layer name="Layer 0" sid="714568130785783">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>0</transparent>

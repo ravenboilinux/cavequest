@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>4-3</name>
-    <sid>891301775773150</sid>
+    <name>8-boss</name>
+    <sid>418773711587962</sid>
     <event-sheet></event-sheet>
     <size>
         <width>1708</width>
@@ -13,7 +13,7 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="Layer 0" sid="464459593931972">
+        <layer name="Layer 0" sid="787525462957375">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>0</transparent>

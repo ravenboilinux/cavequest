@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Start Menu</name>
-    <sid>343674702392670</sid>
+    <name>6-boss</name>
+    <sid>174430380528982</sid>
     <event-sheet></event-sheet>
     <size>
         <width>1708</width>
@@ -13,7 +13,7 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="Layer 0" sid="508862160347526">
+        <layer name="Layer 0" sid="889744061925356">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>0</transparent>
@@ -32,14 +32,6 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances>
-        <instance type="GlobalState" uid="30">
-            <properties>
-                <width>10</width>
-                <height>1</height>
-                <depth>1</depth>
-            </properties>
-        </instance>
-    </nonworld-instances>
+    <nonworld-instances />
     <effects />
 </c2layout>

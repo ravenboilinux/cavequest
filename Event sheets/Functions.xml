@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Functions</name>
+    <events>
+        <variable constant="0" name="PrevousLevel" sid="315295570214606" static="0" type="text"></variable>
+        <variable constant="0" name="CurrentLevel" sid="630292976484986" static="0" type="text"></variable>
+        <variable constant="0" name="NextLevel" sid="864140390651283" static="0" type="text"></variable>
+        <event-block sid="209715184567780">
+            <conditions>
+                <condition id="0" name="On function" sid="615088594376205" type="Function">
+                    <param id="0" name="Name">&quot;addBatteryLevel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="206782032762797" type="Function">
+                    <param id="0" name="Name">&quot;setBatteryLevel&quot;</param>
+                    <param id="1" name="Parameter {n}">clamp(PlayerBatteryLevel+Function.Param(0),MinPlayerBatteryLevel,MaxPlayerBatteryLevel)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="739336728442618">
+            <conditions>
+                <condition id="0" name="On function" sid="598630784253001" type="Function">
+                    <param id="0" name="Name">&quot;goToNextLevel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="610665123598200" type="System">
+                    <param id="0" name="Variable">KeyFound</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="380953835767200" type="System">
+                    <param id="0" name="Variable">PrevousLevel</param>
+                    <param id="1" name="Value">LayoutName</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="594739160160479">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="147371314590998" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;1-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="311107138918464" type="System">
+                            <param id="0" name="Layout">1-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="325194947635496">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="336741802772872" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;1-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="735315609545233" type="System">
+                            <param id="0" name="Layout">1-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="375918099342926">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="460724615884070" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;2-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="600804377596953" type="System">
+                            <param id="0" name="Layout">2-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="788922378848591">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="948808719176298" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;2-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="792019060510670" type="System">
+                            <param id="0" name="Layout">2-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="448102350149530">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="716357652417785" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;3-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="339897568027433" type="System">
+                            <param id="0" name="Layout">3-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="162973003164430">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="997619669388873" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;3-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="871864218276204" type="System">
+                            <param id="0" name="Layout">3-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="329940780516843">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="945676971038559" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;4-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="474597624092135" type="System">
+                            <param id="0" name="Layout">4-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="455297635240458">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="797739579113194" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;4-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="411974337389637" type="System">
+                            <param id="0" name="Layout">4-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="511700753456133">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="886480530343282" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;5-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="785489893916584" type="System">
+                            <param id="0" name="Layout">5-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="878019381043368">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="234969611704289" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;5-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="205963542352002" type="System">
+                            <param id="0" name="Layout">5-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="736050833448823">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="466645412815822" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;6-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="847463909313029" type="System">
+                            <param id="0" name="Layout">6-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="915644722747723">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="283777687580035" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;6-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="196058574209214" type="System">
+                            <param id="0" name="Layout">6-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="432641262984772">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="623859476656783" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;7-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="169801387563994" type="System">
+                            <param id="0" name="Layout">7-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="960351771347212">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="884464794430566" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;7-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="807844016529950" type="System">
+                            <param id="0" name="Layout">7-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="523335915478068">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="986808598785355" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;8-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="677297622221243" type="System">
+                            <param id="0" name="Layout">8-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="188718343313711">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="298779911037567" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;8-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="991729679042360" type="System">
+                            <param id="0" name="Layout">8-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="566324777411185">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="586664975749717" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;9-1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="635260397895489" type="System">
+                            <param id="0" name="Layout">9-2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="998070800727794">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="926437894561036" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;9-2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="948656031119782" type="System">
+                            <param id="0" name="Layout">9-boss</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="124028282720875">
+            <conditions>
+                <condition id="0" name="On function" sid="280630311801796" type="Function">
+                    <param id="0" name="Name">&quot;setupLayout&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="319224615907680" type="System">
+                    <param id="0" name="Variable">CurrentLevel</param>
+                    <param id="1" name="Value">LayoutName</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="303509988813815">
+            <conditions>
+                <condition id="0" name="On function" sid="137942162715362" type="Function">
+                    <param id="0" name="Name">&quot;restartLevel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="620595058338760" type="System" />
+                <action id="0" name="Call function" sid="649938384246373" type="Function">
+                    <param id="0" name="Name">&quot;resetPlayerLevel&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="995783715620361">
+            <conditions>
+                <condition id="0" name="On function" sid="332464330933711" type="Function">
+                    <param id="0" name="Name">&quot;restartPlayerLevel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="856400339856579" type="Function">
+                    <param id="0" name="Name">&quot;setBatteryLevel&quot;</param>
+                    <param id="1" name="Parameter {n}">MaxPlayerBatteryLevel</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="293060967274158">
+            <conditions>
+                <condition id="0" name="On function" sid="779152992512485" type="Function">
+                    <param id="0" name="Name">&quot;setBatteryLevel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="459579871140776" type="System">
+                    <param id="0" name="Variable">PlayerBatteryLevel</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+                <action id="0" name="Set text" sid="938561044191586" type="BatteryLevel">
+                    <param id="0" name="Text">&quot;Battery Level &quot;&amp;PlayerBatteryLevel</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
